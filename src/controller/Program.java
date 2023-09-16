@@ -21,7 +21,7 @@ public class Program extends menu {
     Library lib;
     Algorithm algorithm;
 
-    public Program(Candidate data) {
+    public Program() {
         super("CANDIDATE MANAGEMENT SYSTEM", mc);
         lib = new Library();
         algorithm = new Algorithm();
