@@ -11,7 +11,7 @@ import java.util.Calendar;
  *
  * @author GoldCandy
  */
-public class Candidate {
+public abstract class Candidate {
 
     private String candidateId;
     private String firstName;

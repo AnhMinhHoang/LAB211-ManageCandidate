@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package common;
+package DataAccess;
 
+import common.Input;
 import java.util.ArrayList;
 import model.Candidate;
 import model.Experience;
@@ -14,14 +15,25 @@ import model.Intern;
  *
  * @author GoldCandy
  */
-public class Algorithm {
-
-    public void create(int choice, ArrayList<Candidate> data) {
+public class CandidateDao {
+    private static CandidateDao instance = null;
+    public static CandidateDao Instance(){
+        if(instance == null){
+            synchronized (CandidateDao.class) {
+                if(instance == null){
+                    instance = new CandidateDao();
+                }
+            }
+        }
+        return instance;
+    }
+    
+    public void create(int type, ArrayList<Candidate> data) {
         String opt = "Y";
         while (opt.equals("Y")) {
             boolean check = false;
             Candidate dt = null;
-            switch (choice) {
+            switch (type) {
                 case 1: {
                     dt = new Experience();
                     if (data == null) {
@@ -71,7 +83,7 @@ public class Algorithm {
             opt = Input.inputMatch("Do you want to continue(Y/N)", "[YN]");
         }
     }
-
+    
     public void search(ArrayList<Candidate> data) {
         if (data.isEmpty()) {
             System.out.println("No one to search!");

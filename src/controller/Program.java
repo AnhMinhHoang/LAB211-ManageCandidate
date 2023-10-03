@@ -4,7 +4,7 @@
  */
 package controller;
 
-import common.Algorithm;
+import repository.CandidateRepository;
 import java.util.ArrayList;
 import model.*;
 import view.menu;
@@ -19,12 +19,12 @@ public class Program extends menu {
     static String[] mc = {"Experience", "Fresher", "Internship", "Searching", "Exit"};
     ArrayList<Candidate> data = new ArrayList();
     Library lib;
-    Algorithm algorithm;
+    CandidateRepository algorithm;
 
     public Program() {
         super("CANDIDATE MANAGEMENT SYSTEM", mc);
         lib = new Library();
-        algorithm = new Algorithm();
+        algorithm = new CandidateRepository();
     }
 
     @Override
